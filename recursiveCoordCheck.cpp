@@ -1,5 +1,5 @@
 bool adjust(double& x, double& y,shared_ptr<Actor> const &hbx){
-    if(dist(x,y,hbx->getX(),hbx->getY()) < SPRITE_RADIUS*2){
+    if(dist(x,y,hbx->getX(),hbx->getY()) < SPRITE_RADIUS*2){ //prevents object overlap and ensures positional bound checking
       do  //make sure in radius
       {
              x += randInt(-2, 2);
