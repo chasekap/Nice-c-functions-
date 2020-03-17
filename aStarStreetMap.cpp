@@ -1,3 +1,6 @@
+//Uses unordered maps and a priority queue to implement A* to enable point to point navigation optimally 
+//Implements a stack to return the route in correct order
+
 DeliveryResult PointToPointRouterImpl::generatePointToPointRoute(
         const GeoCoord& start,
         const GeoCoord& end,
@@ -50,7 +53,7 @@ while(!nextUp.empty()){ //O(N) + O(N) + O(N) + O(4) -> O(N)
       double dg = distanceEarthMiles(x.end, end) * .3;  //heuristic cost must not overestimate distance
 
       double cost = dx + dg;
-      if(costTo.find(next) == nullptr || dx < *costTo(next)){ //don't waste time making things more complex/time consuming on marginal improvemnets
+      if(costTo.find(next) == nullptr || dx < *costTo(next)){ 
       pathTo.associate(next,make_pair(current,name)); //so we can save the name of the street
       costTo.associate(next,dx);
       nextUp.push(make_pair(cost,next));
