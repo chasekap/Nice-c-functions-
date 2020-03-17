@@ -50,7 +50,7 @@ while(!nextUp.empty()){ //O(N) + O(N) + O(N) + O(4) -> O(N)
       double dg = distanceEarthMiles(x.end, end) * .3;  //heuristic cost must not overestimate distance
 
       double cost = dx + dg;
-      if(costTo.find(next) == nullptr){ //don't waste time making things more complex/time consuming on marginal improvemnets
+      if(costTo.find(next) == nullptr || dx < *costTo(next)){ //don't waste time making things more complex/time consuming on marginal improvemnets
       pathTo.associate(next,make_pair(current,name)); //so we can save the name of the street
       costTo.associate(next,dx);
       nextUp.push(make_pair(cost,next));
